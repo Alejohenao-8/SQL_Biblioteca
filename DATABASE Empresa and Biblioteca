@@ -1,0 +1,193 @@
+Base de datos con Tablas y los campos::
+
+CREATE DATABASE Empresa;
+
+USE Empresa;
+
+CREATE TABLE empleados (
+    id_empl INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100),
+    cargo VARCHAR(50),
+    salario DECIMAL(10,2)
+);
+
+CREATE TABLE cargo (
+    id_cargo INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_cargo VARCHAR(50),
+    descripcion VARCHAR(255),
+    salario DECIMAL(10,2)
+);
+
+
+crear 3 registros,
+
+USE Empresa;
+
+INSERT INTO cargo (nombre_cargo, descripcion, salario) VALUES ('Gerente', 'Encargado de la gestión de la empresa', 500000), ('Asistente', 'Apoya al gerente en tareas administrativas', 250000), ('Desarrollador', 'Desarrolla aplicaciones y software', 400000);
+
+INSERT INTO empleados (nombre, cargo, salario) VALUES ('Juan Pérez', 'Gerente', 7500000), ('Ana Gómez', 'Desarrollador', 6000000), ('Luis Castro', 'Proyectos', 10000000);
+
+
+
+2. Realizar la consulta de los datos de los empleados:
+
+USE Empresa;
+SELECT * FROM empleados;
+
+
+
+
+
+
+
+
+
+
+Realizar los comandos para los siguiente:
+
+Seleccionar todos los cargos:
+
+USE Empresa;
+SELECT * FROM cargo;
+
+
+
+Seleccionar empleados que ganan más de 7,000,000:
+
+USE Empresa;
+SELECT * FROM empleados WHERE salario > 7000000;
+
+
+
+
+Actualizar el salario de un empleado (por ejemplo, de 'Ana Gómez'): se quiere
+aumentar el salario de 'Ana Gómez' a 6,500,000:
+
+USE Empresa;
+UPDATE empleados SET salario = 6500000 WHERE nombre = 'Ana Gómez';
+
+
+
+USE Empresa;
+SELECT * FROM empleados WHERE nombre = 'Ana Gómez';
+
+
+
+
+
+
+
+Eliminar un empleado (por ejemplo, 'Luis Castro'):
+USE Empresa;
+DELETE FROM empleados WHERE nombre = 'Luis Castro';
+
+
+
+
+
+
+
+Seleccionar empleados con el cargo 'Desarrollador':
+USE Empresa;
+SELECT * FROM empleados WHERE cargo = 'Desarrollador';
+
+
+Insertar un nuevo empleado con un cargo existente: se quiere agregar a 'Marta
+López' con el cargo de 'Asistente' y un salario de 3,000,000:
+
+USE Empresa;
+INSERT INTO empleados (nombre, cargo, salario) VALUES ('Marta López', 'Asistente', 3000000);
+
+
+
+Ejercicio de práctica 2.
+
+
+Actualizar la disponibilidad de un libro (marcarlo como no disponible después de un préstamo)
+
+USE Biblioteca;
+UPDATE Libros SET Disponible = 0 WHERE Titulo = 'Cien Años de Soledad';
+
+
+
+
+Actualizar la fecha de devolución de un préstamo.
+USE Biblioteca;
+UPDATE Prestamos SET Fecha_Devolucion = '2024-08-20' WHERE ID_Prestamo = 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Eliminar un libro de la base de datos
+USE Biblioteca;
+DELETE FROM Libros WHERE ID_Libro = 3;
+
+
+
+
+
+2. Deberás realizar comandos de consulta para validar la información, estas consultas son:
+a) Seleccionar todos los libros:
+USE Biblioteca;
+SELECT * FROM Libros;
+
+
+
+
+
+
+
+
+
+
+
+
+
+b) Seleccionar todos los autores
+USE Biblioteca;
+SELECT * FROM Autores;
+
+
+
+
+c) Seleccionar el libro de Gabriel García Márquez
+USE Biblioteca;
+SELECT * FROM Libros WHERE ID_Autor = 'Gabriel García Márquez';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+d) Mostrar los libros devueltos en el mes 8 de la tabla prestamos del año 2024, puedes
+filtrar por el mes en la columna Fecha_Devolucion.
+
+USE Biblioteca;
+SELECT * FROM Prestamos WHERE MONTH(Fecha_Devolucion) = 8 AND YEAR(Fecha_Devolucion) = 2024;
+
